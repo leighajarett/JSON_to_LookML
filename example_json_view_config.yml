@@ -1,0 +1,6 @@
+connection_id : 'connection_name'
+table_name : 'table_name'
+project_id : 'project_name'
+github_access_token : 'your_access_token_here'
+view_name : 'json_view'
+config_path : 'config.yml'
