@@ -14,15 +14,15 @@ In order to run the script, the user must have Python 3.7 installed, along with 
 
   2) Create a json_view_config.yml file that includes the following, you can find an example here 
 
-    i) `Connection id`, which is the database connection name
+    i) Connection id, which is the database connection name
   
-    ii) `Project id`, which is the name of the project
+    ii) Project id, which is the name of the project
   
-    iii) `View name`, which will be the name of the view file created
+    iii) View name, which will be the name of the view file created
     
-    iv) `Config path`, which is the path to the looker_config.yml file 
+    iv) Config path, which is the path to the looker_config.yml file 
     
-    v) `Github access token`, which can be generated using the instructions here: https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
+    v) Github access token, which can be generated using the instructions here: https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
     
   3) Run the python file, and enter the path to the json_view_config.yml file
 
