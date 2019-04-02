@@ -12,7 +12,7 @@ In order to run the script, the user must have Python 3.7 installed, along with 
 
   1) Create an looker_config.yml file with your Looker authentication credentials, you can find an example [here](https://github.com/llooker/python_api_samples/blob/master/config_sample.yml)
 
-  2) Create a json_view_config.yml file that includes the following, you can find an example here 
+  2) Create a json_view_config.yml file that includes the following, you can find an example [here](https://github.com/leighajarett/JSON_to_LookML/blob/master/example_json_view_config.yml) 
 
     i) Connection id, which is the database connection name
   
