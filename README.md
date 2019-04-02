@@ -8,9 +8,9 @@ The script selects the first 25 rows in the specified data table and identifies 
 
 ## Getting Started
 
-In order to run the script, the user must have Python 3.7 installed, along with [Looker's Python API package] (https://github.com/llooker/python_api_samples) and [Github's Python API package] (https://gitpython.readthedocs.io/en/stable/). This script was created to be used with the [Looker's 3.1 API] (https://docs.looker.com/reference/api-and-integration/api-reference/v3.1).
+In order to run the script, the user must have Python 3.7 installed, along with [Looker's Python API package](https://github.com/llooker/python_api_samples) and [Github's Python API package](https://gitpython.readthedocs.io/en/stable/). This script was created to be used with the [Looker's 3.1 API](https://docs.looker.com/reference/api-and-integration/api-reference/v3.1).
 
-1) Create an looker_config.yml file with your Looker authentication credentials, you can find an example [here] (https://github.com/llooker/python_api_samples/blob/master/config_sample.yml)
+1) Create an looker_config.yml file with your Looker authentication credentials, you can find an example [here](https://github.com/llooker/python_api_samples/blob/master/config_sample.yml)
 2) Create a json_view_config.yml file that includes the following, you can find an example here 
   i) The connection id, which is the database connection name
   ii) The project id, which is the name of the project
