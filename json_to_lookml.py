@@ -34,7 +34,7 @@ def pull_github_repo(project_name,access_token):
     if os.path.exists(repo_dir):
         repo = git.Repo(repo_dir)
     else:
-        repo = git.Repo.clone_from(https_remot_url,repo_dir)
+        repo = git.Repo.clone_from(https_remote_url,repo_dir)
     o = repo.remotes.origin
     o.pull()
     return repo
