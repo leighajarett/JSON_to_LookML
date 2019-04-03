@@ -168,7 +168,7 @@ def parse_other_dimensions(query_result):
 
 
 #pushes the new view file to the github repository
-def push_new_view(repo,master_string):
+def push_new_view(repo,master_string,view_name):
     new_file_path = os.path.join(repo.working_tree_dir, '%s.view.lkml' %view_name)
     f = open(new_file_path, 'w')
     f.write(master_string)
@@ -208,7 +208,7 @@ def main():
         json_query_result = [query_result[i][col_name] for i in range(len(query_result))]
         master_string += '\n\n' + parse_jsons(json_query_result,col_name)
     master_string += '\n\n' + '\tmeasure: count { \n\ttype: count \n\t} \n\n}' 
-    push_new_view(repo,master_string)
+    push_new_view(repo,master_string,view_name)
     return 
 
 
