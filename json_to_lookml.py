@@ -1,5 +1,5 @@
 import yaml
-import lookerapi
+from lookerapi import LookerApi
 import git
 import pandas as pd
 import json
@@ -37,7 +37,7 @@ def connect_looker(config_path):
     my_token = params['hosts'][host]['token']
     
     #connect to Looker
-    looker = lookerapi.LookerApi(host=my_host,
+    looker = LookerApi(host=my_host,
     token=my_token,
     secret = my_secret)
     
