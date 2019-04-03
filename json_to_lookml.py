@@ -28,7 +28,7 @@ import os
 #clones github repository to 'cloned_looker_git_repo' in the working directory
 def pull_github_repo(project_name,access_token):
     project = looker.get_project(project_name)
-    https_remote_url = 'https://%s:x-oauth-basic%s' % (access_token, project['git_remote_url'][3:])
+    #https_remote_url = 'https://%s:x-oauth-basic%s' % (access_token, project['git_remote_url'][3:])
     
     repo_dir = os.path.join(os.getcwd(), 'cloned_looker_git_repo')
     if os.path.exists(repo_dir):
