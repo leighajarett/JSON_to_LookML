@@ -180,7 +180,7 @@ def main():
     repo = pull_github_repo(project_id,github_access_token)
     query_body = {}
     query_body['connection_id'] = connection_id
-    query_body['sql'] = 'select * from %s limit 25' %table_name
+    query_body['sql'] = 'select * from %s limit 100' %table_name
     query = looker.create_sql_query(query_body)
     query_result = looker.run_sql_query(query['slug'])
     json_cols = find_json_cols(query_result)
