@@ -25,7 +25,7 @@ import os
 
 
 #clones github repository to 'cloned_looker_git_repo' in the working directory
-def pull_github_repo(project_name,access_token):
+def pull_github_repo(project_name):
     project = looker.get_project(project_name)
     #https_remote_url = 'https://%s:x-oauth-basic%s' % (access_token, project['git_remote_url'][3:])
     
@@ -52,6 +52,7 @@ def connect_looker(config_path):
     my_host = params['host']
     my_secret = params['secret']
     my_token = params['token']
+
     
     #connect to Looker
     looker = LookerApi(host=my_host,
@@ -192,7 +193,7 @@ def main():
     #github_access_token = params['github_access_token']
 
     connect_looker(config_path)
-    repo = pull_github_repo(project_id,github_access_token)
+    repo = pull_github_repo(project_id)
     query_body = {}
     query_body['connection_id'] = connection_id
     query_body['sql'] = 'select * from %s limit 100' %table_name
