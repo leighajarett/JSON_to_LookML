@@ -26,11 +26,13 @@ Next, you'll need to download or clone the dist repository onto your local machi
 
 You can get your Looker API credentials by:
 
-  -Go to Admin > Users in your Looker instance.
-  -Either make a new user or click to an existing users page using the "Edit" button. Remember the API user will have the same credentials as the user so keep that security point in mind when choosing a user.
-  -Click the "New API 3 Key" button to make API 3 credentials for the user.
+     -Go to Admin > Users in your Looker instance.
+  
+    -Either make a new user or click to an existing users page using the "Edit" button. Remember the API user will have the same credentials as the user so keep that security point in mind when choosing a user.
+  
+    -Click the "New API 3 Key" button to make API 3 credentials for the user.
 
-Make sure your Looker instance is configured to a working API Host URL by going to Admin > API in your Looker instance and checking the API Host URL field. A blank field is the default for Looker to auto-detect the API Host URL.
+    Make sure your Looker instance is configured to a working API Host URL by going to Admin > API in your Looker instance and checking the API Host URL field. A blank field is the default for Looker to auto-detect the API Host URL.
 
 Last, you will need to run the json_to_lookml unix executable. Once the executable has finished running, you can pull changes from production and see the new view file in your instance!
    
