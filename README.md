@@ -4,26 +4,36 @@ This script was designed for Looker users who have columns in their data tables 
 
 ## How it Works
 
-The script selects the first 25 rows in the specified data table and identifies columns that have JSON objects. It identifies the data type for each of the fields within the JSON and creates the appropriate dimension text. The script also identifies the github repository connected to the specified project, and pushes the complete view file to the master branch. Currently, the script is configured to work with a Snowflake database.
+The script selects the first 100 rows in the specified data table and identifies columns that have JSON objects. It identifies the data type for each of the fields within the JSON and creates the appropriate dimension text. The script also identifies the github repository connected to the specified project, and pushes the complete view file to the master branch. Currently, the script is configured to work with a Snowflake database.
 
-## Getting Started
+## Running the Executable
 
-In order to run the script, the user must have Python 3.7 and pip installed, along with [Looker's Python API package](https://github.com/llooker/python_api_samples) and [Github's Python API package](https://gitpython.readthedocs.io/en/stable/). This script was created to be used with the [Looker's 3.1 API](https://docs.looker.com/reference/api-and-integration/api-reference/v3.1).
+In order to run the executable, you need to first authenticate your github account via SSH - you can follow these instructions to generate a new SSH ket, and these instructions to add it to your github account. 
 
-  1) Create an looker_config.yml file with your Looker authentication credentials, you can find an example [here](https://github.com/llooker/python_api_samples/blob/master/config_sample.yml)
+Next, you'll need to download or clone the dist repository onto your local machine and edit the config.yml file with the following:
 
-  2) Create a json_view_config.yml file that includes the following, you can find an example [here](https://github.com/leighajarett/JSON_to_LookML/blob/master/example_json_view_config.yml) 
-
-    i) Connection id, which is the database connection name
+    i) Connection id, the database connection name
   
-    ii) Project id, which is the name of the project
+    ii) Project id, the name of the project
   
     iii) View name, which will be the name of the view file created
     
-    iv) Config path, which is the path to the looker_config.yml file 
+    iv) Host, (e.g. https://companyname.looker.com:19999/api/3.1/)
     
-    v) Github access token, which can be generated using the instructions here: https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line
+    v) Secret, your Looker API Client Secret (see below for instructions)
     
-  3) Run the python file, and enter the path to the json_view_config.yml file
+    vi) Token, your Looker API Client ID (see below for instructions)
 
+You can get your Looker API credentials by:
 
+  -Go to Admin > Users in your Looker instance.
+  -Either make a new user or click to an existing users page using the "Edit" button. Remember the API user will have the same credentials as the user so keep that security point in mind when choosing a user.
+  -Click the "New API 3 Key" button to make API 3 credentials for the user.
+
+Make sure your Looker instance is configured to a working API Host URL by going to Admin > API in your Looker instance and checking the API Host URL field. A blank field is the default for Looker to auto-detect the API Host URL.
+
+Last, you will need to run the json_to_lookml unix executable. Once the executable has finished running, you can pull changes from production and see the new view file in your instance!
+   
+## Running the Python Script
+
+Alternatively, if you would like to run the Python script directly - you will need to have Python 3+ installed, as well as the GitPython package (pip install GitPython) and the LookerAPI.py file which includes helper functions for accessing Looker's API. 
