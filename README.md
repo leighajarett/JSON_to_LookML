@@ -8,7 +8,7 @@ The script selects the first 100 rows in the specified data table and identifies
 
 ## Running the Unix Executable
 
-In order to run the executable, you need to first authenticate your github account via SSH - you can follow these instructions to generate a new SSH ket, and these instructions to add it to your github account. 
+In order to run the executable, you need to first authenticate your github account via SSH - you can follow these [instructions](https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to generate a new SSH key, and these [instructions](https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account) to add it to your github account. 
 
 Next, you'll need to download or clone the dist repository onto your local machine and edit the config.yml file with the following:
 
