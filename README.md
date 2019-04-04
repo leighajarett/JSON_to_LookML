@@ -6,7 +6,7 @@ This script was designed for Looker users who have columns in their data tables 
 
 The script selects the first 100 rows in the specified data table and identifies columns that have JSON objects. It identifies the data type for each of the fields within the JSON and creates the appropriate dimension text. The script also identifies the github repository connected to the specified project, and pushes the complete view file to the master branch. Currently, the script is configured to work with a Snowflake database.
 
-## Running the Executable
+## Running the Unix Executable
 
 In order to run the executable, you need to first authenticate your github account via SSH - you can follow these instructions to generate a new SSH ket, and these instructions to add it to your github account. 
 
