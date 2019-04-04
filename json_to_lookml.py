@@ -24,7 +24,6 @@ import csv
 import os
 
 
-
 #clones github repository to 'cloned_looker_git_repo' in the working directory
 def pull_github_repo(project_name,access_token):
     project = looker.get_project(project_name)
@@ -50,9 +49,9 @@ def connect_looker(config_path):
     params = yaml.load(f)
     host = 'localhost'
     f.close()
-    my_host = params['hosts'][host]['host']
-    my_secret = params['hosts'][host]['secret']
-    my_token = params['hosts'][host]['token']
+    my_host = params['host']
+    my_secret = params['secret']
+    my_token = params['token']
     
     #connect to Looker
     looker = LookerApi(host=my_host,
@@ -182,17 +181,15 @@ def push_new_view(repo,master_string,view_name):
 
 #takes in yaml file with necessary inputs, selects top 25 rows of table as sample, and calls helper functions to create the view file
 def main():
-    print('Please specify the path to the JSON_to_LookML config file')
-    json_config_path = input()
-    f = open(json_config_path)
+    config_path = 'config.yml'
+    f = open(config_path)
     params = yaml.load(f)
     f.close()
-    config_path = params['config_path']
     connection_id = params['connection_id']
     project_id = params['project_id']
     table_name = params['table_name']
     view_name = params['view_name']
-    github_access_token = params['github_access_token']
+    #github_access_token = params['github_access_token']
 
     connect_looker(config_path)
     repo = pull_github_repo(project_id,github_access_token)
@@ -201,6 +198,7 @@ def main():
     query_body['sql'] = 'select * from %s limit 100' %table_name
     query = looker.create_sql_query(query_body)
     query_result = looker.run_sql_query(query['slug'])
+    print('--- generating lookml ---')
     json_cols = find_json_cols(query_result)
     master_string = 'view: %s {\n\tsql_table_name: %s ;;' %(view_name,table_name)
     master_string += '\n\n' + parse_other_dimensions(query_result)
@@ -208,7 +206,9 @@ def main():
         json_query_result = [query_result[i][col_name] for i in range(len(query_result))]
         master_string += '\n\n' + parse_jsons(json_query_result,col_name)
     master_string += '\n\n' + '\tmeasure: count { \n\ttype: count \n\t} \n\n}' 
+    print('--- pushing changes ---')
     push_new_view(repo,master_string,view_name)
+    print('--- finshed! ---')
     return 
 
 
